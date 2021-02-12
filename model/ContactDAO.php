@@ -12,18 +12,6 @@
             return $mysqli;
         }
 
-        public function getContacts(){
-            $connection=$this->getConnection();
-            $res = $connection->query("SELECT * from contacts;");
-            while($row = $res->fetch_assoc()){
-                $contact = new Contact();
-                $contact->load($row);
-                $contacts[]=$contact;
-            }    
-            $connection->close();
-            return $contacts;
-        }
-
         public function addContact($username, $email){
             $connection=$this->getConnection();
             $stmt = $connection->prepare("INSERT INTO contacts (username, email) VALUES (?, ?)");
@@ -33,7 +21,7 @@
             $connection->close();
         }
 
-        public function getAllContacts(){
+        public function getContacts(){
             $connection=$this->getConnection();
             $stmt = $connection->prepare("SELECT * FROM contacts;"); 
             $stmt->execute();

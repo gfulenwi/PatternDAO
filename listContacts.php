@@ -2,14 +2,6 @@
     require 'model/ContactDAO.php';
 
     $contactDAO = new ContactDAO();
-    $method=$_SERVER['REQUEST_METHOD'];
-    if($method=='POST'){
-        $username = $_POST['username'];
-        $email = $_POST['email'];
-        $contactDAO->addContact($username, $email);
-        header('Location: index.php');
-        exit;        
-    }
     $contacts=$contactDAO->getContacts();
 ?>
 <!DOCTYPE html>
@@ -17,21 +9,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS 2033 | Show Form</title>
+    <title>CS 2033 | List Contacts</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 <body>
 
     <!-- Image and text -->
     <nav class="navbar navbar-light bg-light" style="margin-bottom: 20px">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="listContacts.php">
         <img src="images/lion.png" width="12%" height="12%" class="d-inline-block align-middle" alt="">
         CS 2033 Web Systems
     </a>
     </nav>
     <div class="container">
-    <div class="row">
-        <div class="col-sm-8">
+        <div class="col">
+        <a class="btn btn-primary" href="addContact.php" role="button">Add Contact</a>
             <table class="table table-bordered table-striped">
                 <thead><tr><th>Contact ID</th><th>User Name</th><th>Email</th></tr></thead>
                 <tbody>
@@ -45,23 +37,6 @@
                 </tbody>        
             </table>       
         </div>
-        <div class="col-sm-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Mailing List</h5>
-                    <p class="card-text">Add a new contact to the list.</p>
-                    <form action="index.php" method="POST">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control mb-3" id="username" name="username" placeholder="Enter your Username" required>
-                        <label for="email" class="form-label">Email</label>
-                        <input type="text" class="form-control mb-3" id="email" name="email" placeholder="Enter your Email Address" required>
-                        <button type="submit" class="btn btn-primary w-100">Subscribe</button>
-                    </form>
-                </div>
-            </div>      
-        </div>
-        </div>
- 
     </div>
 
 
