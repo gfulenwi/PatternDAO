@@ -2,4 +2,4 @@
 Implementation of the Data Access Object (DAO) Pattern in PHP
 
 
-<img src="DAO-Pattern.png" alt="DAO Pattern">
+<img src="images/DAO-Pattern.png" alt="DAO Pattern">
