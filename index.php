@@ -1,5 +1,5 @@
 <?php
-    require 'ContactDAO.php';
+    require 'model/ContactDAO.php';
 
     $contactDAO = new ContactDAO();
     $method=$_SERVER['REQUEST_METHOD'];
@@ -25,7 +25,7 @@
     <!-- Image and text -->
     <nav class="navbar navbar-light bg-light" style="margin-bottom: 20px">
     <a class="navbar-brand" href="#">
-        <img src="lion.png" width="12%" height="12%" class="d-inline-block align-middle" alt="">
+        <img src="images/lion.png" width="12%" height="12%" class="d-inline-block align-middle" alt="">
         CS 2033 Web Systems
     </a>
     </nav>
