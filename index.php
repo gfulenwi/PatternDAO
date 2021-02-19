@@ -5,8 +5,11 @@
     $method=$_SERVER['REQUEST_METHOD'];
     if($method=='POST'){
         $username = $_POST['username'];
-        $email = $_POST['email'];
-        $contactDAO->addContact($username, $email);
+	$email = $_POST['email'];
+	$contact = new Contact();
+	$contact->setUsername($username);
+	$contact->setEmail($email);
+        $contactDAO->addContact($contact);
         header('Location: index.php');
         exit;        
     }

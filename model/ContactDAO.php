@@ -12,10 +12,10 @@
             return $mysqli;
         }
 
-        public function addContact($username, $email){
+        public function addContact($contact){
             $connection=$this->getConnection();
             $stmt = $connection->prepare("INSERT INTO contacts (username, email) VALUES (?, ?)");
-            $stmt->bind_param("ss", $username, $email);
+            $stmt->bind_param("ss", $contact->getUsername(), $contact->getEmail());
             $stmt->execute();
             $stmt->close();
             $connection->close();
